@@ -1,0 +1,557 @@
+/* Navbar */
+/* Navbar */
+
+nav {
+  width: 100%; /* full width */
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  padding: 15px 30px;
+  margin: 0 0 30px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;              /* horizontal layout */
+  justify-content: center;
+   align-items: center;   /* center items */
+  gap: 40px;                  /* spacing between items */
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  display: inline-block;      /* keep items inline */
+}
+
+nav a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1em;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* Login & Register Form Box */
+.LoginForm,
+.RegisterForm {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 25px;
+  background-color: #e9ecf3;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.LoginForm h2,
+.RegisterForm h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.LoginForm input[type="email"],
+.LoginForm input[type="password"],
+.RegisterForm input[type="email"],
+.RegisterForm input[type="password"] {
+  width: 99%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95em;
+}
+
+.LoginForm button,
+.RegisterForm button {
+  width: 99%;
+  padding: 12px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.LoginForm button:hover,
+.RegisterForm button:hover {
+  background-color: #2980b9;
+}
+
+/* Resume Upload Box */
+.ResumeUpload {
+  max-width: 350px;
+  margin: 80px auto;
+  padding: 20px;
+  background-color: #e0e4eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.ResumeUpload h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.ResumeUpload input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-size: 0.95em;
+}
+
+.ResumeUpload button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ResumeUpload button:hover {
+  background-color: #2980b9;
+}
+
+/* Dashboard main heading */
+.Dashboard h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Welcome text */
+.welcome {
+  display: block;
+  width: 100%;
+  text-align: center;   /* force center alignment */
+  font-size: 20px;
+  font-weight: 500;
+  color: #2c3e50;
+  margin: 20px 0 30px;
+}
+
+/* Available Jobs heading */
+.jobSection h2 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+/* Container for job cards */
+.jobCardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+/* Individual job card */
+.jobCard {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.jobCard:hover {
+  transform: translateY(-5px);
+}
+
+.jobCard h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.jobCard p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.jobCard button {
+  background-color:#3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.jobCard button:hover {
+  background-color: #105ecb;
+}
+.authChoice {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.authChoice h2 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.authChoice p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.authButtons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.authButtons .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.authButtons .btn:hover {
+  background-color: #2980b9;
+}
+.signup-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.signup-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  background-color: #2ecc71;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover {
+  background-color: #27ae60;
+}
+/* Register Form Box */
+.RegisterForm {
+  max-width: 400px;              /* same width as login */
+  margin: 80px auto;             /* center horizontally with space from top */
+  padding: 25px;
+  background-color: #e9ecf3;     /* same background as login */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* subtle shadow */
+  text-align: center;            /* center the content inside */
+}
+
+/* Headings inside register form */
+.RegisterForm h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Inputs inside register form */
+.RegisterForm input[type="text"],
+.RegisterForm input[type="email"],
+.RegisterForm input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95em;
+}
+
+/* Button inside register form */
+.RegisterForm button {
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.RegisterForm button:hover {
+  background-color: #2980b9;
+}
+.error-input {
+  border: 2px solid red;
+}
+
+.error-text {
+  color: red;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+/* Profile dropdown */
+.profileMenu {
+  position: relative;
+  display: inline-block;
+}
+
+.profileButton {
+  color: #ecf0f1 !important;
+  background: none !important;
+  border: none !important;
+  font-weight: 600;
+  font-size: 1em;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.profileButton:hover {
+  background-color: #3498db !important;
+  color: #fff !important;
+}
+
+/* Focus state (neutral, doesn’t block hover) */
+.profileButton:focus {
+  outline: none !important;
+  background: none !important;
+  color: #ecf0f1 !important;
+}
+
+/* Dropdown open state (neutral, not highlighted) */
+.profileButton.show {
+  background: none !important;
+  color: #ecf0f1 !important;
+}
+
+.dropdownMenu {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  min-width: 180px;
+}
+
+.dropdownMenu .dropdown-item {
+  padding: 10px 14px;
+  color: #2c3e50;
+}
+
+.dropdownMenu .dropdown-item:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+
+
+
+.skillsSection {
+  margin: 2rem auto;
+  text-align: center;
+  max-width: 800px;
+}
+
+.skillsSection h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Skills container styling */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;   /* center horizontally */
+  gap: 10px;
+  background-color: #f9f9f9; /* light gray background */
+  border: 2px solid #44a4c0; /* teal border */
+  border-radius: 12px;       /* rounded corners */
+  padding: 15px;
+}
+
+/* Individual skill chip */
+.skill-chip {
+  background-color: #f0f8ff;
+  border: 1px solid #44a4c0;
+  border-radius: 20px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.skill-chip .remove-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: red;
+  font-size: 14px;
+}
+
+.skill-chip.add-chip {
+  background-color: #e6f7ff;
+  color: #44a4c0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.skill-chip.add-chip input {
+  border: none;
+  outline: none;
+  padding: 4px;
+  font-size: 14px;
+  background: transparent;
+}
+.resumeScoreSection {
+  text-align: center; /* centers the heading */
+  margin: 20px 0;
+}
+
+.resumeScoreCircle {
+  display: flex;
+  justify-content: center; /* ✅ centers horizontally */
+  align-items: center;
+  margin-top: 10px;
+}
+.dashboard {
+  padding: 20px;
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+
+.heading {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.welcome {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.analysis-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: stretch;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  /* removed flex: 1 so cards size by content */
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+  text-align: left;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.job-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.dashboard-layout {
+  display: flex;
+  gap: 20px;
+}
+
+/* Left column: Pie + Suggestions stacked */
+/* Left column: Pie + Suggestions stacked */
+.left-column {
+  width: 35%;              /* occupy 35% horizontally */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pie-card {
+  flex: 0 0 auto;          /* fixed by content (200x200 SVG) */
+}
+
+.suggestions-card {
+  flex: 1;                 /* outer card fills remaining vertical space */
+  min-height: 0;           /* allow shrinking if needed */
+  display: flex;
+  flex-direction: column;  /* so inner content stacks naturally */
+}
+
+/* Right column: Skills + Best Matches stacked */
+.right-column {
+  width: 65%;              /* occupy remaining 65% horizontally */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-column .card {
+  flex: 0 0 auto;          /* each grows by content */
+}

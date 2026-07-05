@@ -1,0 +1,17 @@
+# Node modules
+resume-analyzer-frontend/node_modules/
+resume-analyzer-backend/node_modules/
+
+# Build output
+resume-analyzer-frontend/build/
+resume-analyzer-backend/uploads/
+
+# Environment files
+resume-analyzer-backend/.env
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
