@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import JobList from "./JobList.jsx";
 import SkillsSection from "./SkillsSection.jsx";
 import { jwtDecode } from "jwt-decode";
@@ -19,7 +19,7 @@ function Dashboard() {
   const [resumeScore, setResumeScore] = useState(0);
   const [refreshKey, setRefreshKey] = useState(0);
 
-  const fetchSkills = async () => {
+  const fetchSkills = useCallback(async () => {
     try {
       const res = await fetch(`${API_BASE}/auth/skills/${userId}`);
       const data = await res.json();
@@ -31,9 +31,9 @@ function Dashboard() {
     } catch (err) {
       console.error("Error fetching skills:", err);
     }
-  };
+  }, [userId]);
 
-  const fetchMatchedJobs = async () => {
+  const fetchMatchedJobs = useCallback(async () => {
     try {
       const res = await fetch(`${API_BASE}/jobs/matched/${userId}`);
       const data = await res.json();
@@ -41,9 +41,9 @@ function Dashboard() {
     } catch (err) {
       console.error("Error fetching matched jobs:", err);
     }
-  };
+  }, [userId]);
 
-  const fetchResumeScore = async () => {
+  const fetchResumeScore = useCallback(async () => {
     try {
       const res = await fetch(`${API_BASE}/score/resume-score/${userId}`);
       const data = await res.json();
@@ -51,14 +51,14 @@ function Dashboard() {
     } catch (err) {
       console.error("Error fetching resume score:", err);
     }
-  };
+  }, [userId]);
 
   useEffect(() => {
     if (!userId) return;
     fetchSkills();
     fetchMatchedJobs();
     fetchResumeScore();
-  }, [userId]);
+  }, [userId, fetchSkills, fetchMatchedJobs, fetchResumeScore]);
 
   const handleSkillsUpdated = () => {
     fetchSkills();
