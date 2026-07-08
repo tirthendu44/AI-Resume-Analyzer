@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Pie from "./Pie";
-import { FourSquare } from "react-loading-indicators"; // ✅ import spinner
+import { FourSquare } from "react-loading-indicators";
+
+// Use environment variable for API base
+const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
 
 function JobDetailsPage({ userId }) {
   const { jobId } = useParams();
@@ -18,7 +21,7 @@ function JobDetailsPage({ userId }) {
     setLoading(true);
     setError(null);
 
-    fetch(`http://localhost:5000/jobs/analysis/${userId}/${jobId}`)
+    fetch(`${API_BASE}/jobs/analysis/${userId}/${jobId}`)
       .then((res) => res.json())
       .then((data) => {
         setJob(data.job);

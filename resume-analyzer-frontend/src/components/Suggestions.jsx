@@ -1,21 +1,32 @@
 import React, { useEffect, useState } from "react";
 
+// Use environment variable for API base
+const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
+
 const Suggestions = ({ userId, jobId, refreshKey }) => {
   const [suggestions, setSuggestions] = useState([]);
+  const [error, setError] = useState(null);   // ✅ track errors
+  const [loading, setLoading] = useState(false); // ✅ track loading state
 
   useEffect(() => {
     const fetchSuggestions = async () => {
       try {
+        setLoading(true);
+        setError(null);
+
         // ✅ Decide which backend route to call
         const url = jobId
-          ? `http://localhost:5000/score/job-suggestions/${userId}/${jobId}`
-          : `http://localhost:5000/score/resume-suggestions/${userId}`;
+          ? `${API_BASE}/score/job-suggestions/${userId}/${jobId}`
+          : `${API_BASE}/score/resume-suggestions/${userId}`;
 
         const res = await fetch(url);
         const data = await res.json();
         setSuggestions(data.suggestions || []);
       } catch (err) {
         console.error("Error fetching suggestions:", err);
+        setError("Failed to load suggestions. Please try again.");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -24,20 +35,25 @@ const Suggestions = ({ userId, jobId, refreshKey }) => {
 
   return (
     <div style={styles.outer}>
-      <ul style={styles.list}>
-        {suggestions.map((s, idx) => (
-          <li
-            key={idx}
-            style={{
-              ...styles.item,
-              animation: "fadeIn 1s forwards",
-              animationDelay: `${idx * 0.3}s`
-            }}
-          >
-            {s}
-          </li>
-        ))}
-      </ul>
+      {loading && <p>Loading suggestions...</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      {!loading && !error && (
+        <ul style={styles.list}>
+          {suggestions.map((s, idx) => (
+            <li
+              key={idx}
+              style={{
+                ...styles.item,
+                animation: "fadeIn 1s forwards",
+                animationDelay: `${idx * 0.3}s`
+              }}
+            >
+              {s}
+            </li>
+          ))}
+        </ul>
+      )}
 
       <style>
         {`

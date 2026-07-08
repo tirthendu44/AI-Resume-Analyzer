@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+// Use environment variable for API base
+const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
+
 function RegisterForm({ onLogin }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -12,7 +15,7 @@ function RegisterForm({ onLogin }) {
 
     const registerData = { firstName, lastName, email, password };
 
-    fetch("http://localhost:5000/auth/register", {
+    fetch(`${API_BASE}/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(registerData),

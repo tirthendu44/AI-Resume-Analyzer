@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+// Use environment variable for API base
+const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
+
 function LoginForm({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -9,7 +12,7 @@ function LoginForm({ onLogin }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:5000/auth/login", {
+    fetch(`${API_BASE}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

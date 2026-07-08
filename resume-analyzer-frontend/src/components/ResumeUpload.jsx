@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { FourSquare } from "react-loading-indicators";
 
+// Use environment variable for API base
+const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
+
 function ResumeUpload() {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -9,24 +12,21 @@ function ResumeUpload() {
 
   const handleFileChange = (e) => setFile(e.target.files[0]);
 
-  // Decode JWT and get userId
- // Helper to decode JWT and get userId
-const getUserIdFromToken = () => {
-  const token = localStorage.getItem("token");
-  if (!token) return null;
-  try {
-    const base64Url = token.split(".")[1];
-    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    const payload = JSON.parse(atob(base64));
-    console.log("Decoded JWT payload:", payload); // ✅ debug log
-    return payload.userId;
-  } catch (err) {
-    console.error("Error decoding token:", err);
-    return null;
-  }
-};
-
-
+  // Helper to decode JWT and get userId
+  const getUserIdFromToken = () => {
+    const token = localStorage.getItem("token");
+    if (!token) return null;
+    try {
+      const base64Url = token.split(".")[1];
+      const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      const payload = JSON.parse(atob(base64));
+      console.log("Decoded JWT payload:", payload); // ✅ debug log
+      return payload.userId;
+    } catch (err) {
+      console.error("Error decoding token:", err);
+      return null;
+    }
+  };
 
   const handleUpload = async () => {
     if (!file) return setError("Please select a file first!");
@@ -43,7 +43,7 @@ const getUserIdFromToken = () => {
       setError(null);
       setSuccess(false);
 
-      const res = await fetch("http://localhost:5000/upload/resume", {
+      const res = await fetch(`${API_BASE}/upload/resume`, {
         method: "POST",
         body: formData,
       });

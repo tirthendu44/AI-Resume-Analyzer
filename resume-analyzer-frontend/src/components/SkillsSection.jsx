@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+// Use environment variable for API base
+const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
+
 function SkillsSection({ userId, onSkillsUpdated }) {
   const [technicalSkills, setTechnicalSkills] = useState([]);
   const [domainKnowledge, setDomainKnowledge] = useState([]);
@@ -9,7 +12,7 @@ function SkillsSection({ userId, onSkillsUpdated }) {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/auth/skills/${userId}`);
+        const res = await fetch(`${API_BASE}/auth/skills/${userId}`);
         const data = await res.json();
         setTechnicalSkills(data.technical_skills || []);
         setDomainKnowledge(data.domain_knowledge || []);
@@ -17,19 +20,23 @@ function SkillsSection({ userId, onSkillsUpdated }) {
         console.error("Error fetching skills:", err);
       }
     };
-    fetchSkills();
+    if (userId) fetchSkills();
   }, [userId]);
 
   const pushUpdate = async (tech) => {
-    await fetch(`http://localhost:5000/auth/skills/${userId}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        technicalSkills: tech,
-        domainKnowledge,
-      }),
-    });
-    if (onSkillsUpdated) onSkillsUpdated(); // ✅ notify parent
+    try {
+      await fetch(`${API_BASE}/auth/skills/${userId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          technicalSkills: tech,
+          domainKnowledge,
+        }),
+      });
+      if (onSkillsUpdated) onSkillsUpdated(); // ✅ notify parent
+    } catch (err) {
+      console.error("Error updating skills:", err);
+    }
   };
 
   const removeSkill = async (skillToRemove) => {

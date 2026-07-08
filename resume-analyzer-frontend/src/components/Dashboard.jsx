@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import JobList from "./JobList.jsx";
 import SkillsSection from "./SkillsSection.jsx";
-import { jwtDecode } from "jwt-decode"; // ✅ correct named import
+import { jwtDecode } from "jwt-decode";
 import Pie from "./Pie.jsx";
 import Suggestions from "./Suggestions.jsx";
 import "../style.css";
+
+// Use environment variable for API base
+const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
 
 function Dashboard() {
   const token = localStorage.getItem("token");
@@ -18,7 +21,7 @@ function Dashboard() {
 
   const fetchSkills = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/auth/skills/${userId}`);
+      const res = await fetch(`${API_BASE}/auth/skills/${userId}`);
       const data = await res.json();
       const combined = [
         ...(data.technical_skills || []),
@@ -32,7 +35,7 @@ function Dashboard() {
 
   const fetchMatchedJobs = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/jobs/matched/${userId}`);
+      const res = await fetch(`${API_BASE}/jobs/matched/${userId}`);
       const data = await res.json();
       setMatchedJobs(Array.isArray(data) ? data : []);
     } catch (err) {
@@ -42,7 +45,7 @@ function Dashboard() {
 
   const fetchResumeScore = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/score/resume-score/${userId}`);
+      const res = await fetch(`${API_BASE}/score/resume-score/${userId}`);
       const data = await res.json();
       setResumeScore(data.score || 0);
     } catch (err) {
@@ -76,9 +79,7 @@ function Dashboard() {
       </p>
 
       <div className="dashboard-layout">
-        {/* Left column: Pie + Suggestions */}
         <div className="left-column" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-          {/* Pie card stays fixed */}
           <div className="card pie-card" style={{ width: "100%", flexShrink: 0 }}>
             <h2 className="card-title">Resume Strength</h2>
             <div className="center-content">
@@ -86,14 +87,12 @@ function Dashboard() {
             </div>
           </div>
 
-          {/* Suggestions card expands with content */}
-          <div className="card suggestions-card" >
+          <div className="card suggestions-card">
             <h2 className="card-title">AI Suggestions</h2>
             <Suggestions userId={userId} refreshKey={refreshKey} />
           </div>
         </div>
 
-        {/* Right column: Skills + Best Matches */}
         <div className="right-column">
           <div className="card">
             <h2 className="card-title">Skills</h2>
