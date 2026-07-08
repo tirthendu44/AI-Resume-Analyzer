@@ -25,9 +25,7 @@ function Navbar({ isLoggedIn, onLogout }) {
             </Dropdown.Toggle>
 
             <Dropdown.Menu className="dropdownMenu">
-              <Dropdown.Item as={Link} to="/profile" onClick={blurToggle}>
-                View Profile
-              </Dropdown.Item>
+              
               <Dropdown.Item as={Link} to="/upload" onClick={blurToggle}>
                 Resume Upload
               </Dropdown.Item>

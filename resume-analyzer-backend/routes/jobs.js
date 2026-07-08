@@ -54,7 +54,7 @@ router.get("/matched/:userId", async (req, res) => {
         ? Math.round((overlap.length / jobSkills.length) * 100)
         : 0;
       return { ...job, matchScore: score, matchedSkills: overlap };
-    }).filter(job => job.matchScore >= 75);
+    }).filter(job => job.matchScore >= 50);
 
     res.json(matched);
   } catch (err) {
