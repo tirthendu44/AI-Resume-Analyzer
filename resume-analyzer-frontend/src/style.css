@@ -552,9 +552,10 @@ nav ul li a {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: flex-start;   /* keep items aligned left */
-  padding-left: calc((100% - (var(--card-width) * var(--cards-per-row)) - (20px * (var(--cards-per-row) - 1))) / 2);
-  padding-right: 0;
+  justify-content: flex-start;   /* cards align left */
+  max-width: 1200px;             /* set a max width for the grid */
+  margin: 0 auto;                /* equal space left/right */
+  padding: 0 20px;               /* small inner padding */
   box-sizing: border-box;
 }
 
