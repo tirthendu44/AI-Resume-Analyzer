@@ -589,14 +589,14 @@ nav a:hover {
 
   .left-column,
   .right-column {
-    width: 100%;                 /* full width on mobile */
-    display: block;              /* cards flow naturally */
+    width: 100% !important;      /* override inline widths */
+    display: block;
   }
 
   .card {
     width: 100%;
-    margin-bottom: 20px;         /* spacing between cards */
-    min-height: auto;            /* height adapts to content */
+    margin-bottom: 20px;
+    min-height: auto;            /* adapt to content */
   }
 
   .card-title {
@@ -607,4 +607,3 @@ nav a:hover {
   .center-content {
     justify-content: center;
   }
-}
