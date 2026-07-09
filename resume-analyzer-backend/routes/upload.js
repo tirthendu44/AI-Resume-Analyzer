@@ -1,9 +1,3 @@
-const uploadDir = path.join(__dirname, "../uploads");
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-  console.log("Uploads folder created:", uploadDir);
-}
-
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
@@ -14,9 +8,16 @@ const db = require("../config/db");
 
 const router = express.Router();
 
+// ✅ Ensure uploads folder exists at startup
+const uploadDir = path.join(__dirname, "../uploads");
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+  console.log("Uploads folder created:", uploadDir);
+}
+
 // Multer storage setup
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, path.join(__dirname, "../uploads")),
+  destination: (req, file, cb) => cb(null, uploadDir),
   filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname))
 });
 const upload = multer({ storage });
