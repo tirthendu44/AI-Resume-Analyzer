@@ -701,6 +701,6 @@ nav ul li a {
     text-align: center;
   }
   .jobCardContainer{
-    padding-left: 7%;           /* allow horizontal scroll if needed */
+    padding-left: 8%;           /* allow horizontal scroll if needed */
   }
 }
