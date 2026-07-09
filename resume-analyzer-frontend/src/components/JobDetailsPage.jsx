@@ -74,7 +74,7 @@ function JobDetailsPage({ userId }) {
           {/* Left column: Pie + Suggestions */}
           <div
             className="left-column"
-            style={{ width: "35%", display: "flex", flexDirection: "column", gap: "20px" }}
+            
           >
             <div className="card pie-card" style={{ flex: "0 0 auto" }}>
               <h2 className="card-title">Match Strength</h2>
@@ -106,7 +106,7 @@ function JobDetailsPage({ userId }) {
           {/* Right column: Job details */}
           <div
             className="right-column"
-            style={{ width: "65%", display: "flex", flexDirection: "column", gap: "20px" }}
+            
           >
             <div className="card" style={{ flex: "0 0 auto" }}>
               <h2 className="card-title">{job.title}</h2>

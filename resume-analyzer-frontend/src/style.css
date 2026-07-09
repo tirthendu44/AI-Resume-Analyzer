@@ -581,6 +581,25 @@ nav a:hover {
     overflow-x: auto;            /* allow horizontal scroll if needed */
   }
 }
+.job-details-layout {
+  display: flex;
+  gap: 20px;
+}
+
+.left-column {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-column {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 /* Mobile view */
 @media (max-width: 768px) {
   .job-details-layout {
@@ -589,8 +608,8 @@ nav a:hover {
 
   .left-column,
   .right-column {
-    width: 100% !important;      /* override inline widths */
-    display: block;
+    width: 100%;                 /* full width on mobile */
+    display: block;              /* stack naturally */
   }
 
   .card {
@@ -603,7 +622,4 @@ nav a:hover {
     text-align: center;
     margin-bottom: 10px;
   }
-
-  .center-content {
-    justify-content: center;
-  }
+}
