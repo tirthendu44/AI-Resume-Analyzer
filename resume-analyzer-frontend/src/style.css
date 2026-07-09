@@ -351,21 +351,36 @@ nav a:hover {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Focus state (neutral, doesn't block hover) — declared BEFORE hover
-   so hover always wins when both states apply at once */
 .profileButton:focus {
   outline: none !important;
   background: none !important;
   color: #ecf0f1 !important;
 }
 
-/* Hover effect — now takes priority over :focus due to source order */
-.profileButton:hover {
+/* Only apply hover on devices that actually have a precise pointer (mouse) */
+@media (hover: hover) and (pointer: fine) {
+  .profileButton:hover {
+    background-color: #3498db !important;
+    color: #fff !important;
+  }
+
+  .dropdownMenu .dropdown-item:hover {
+    background-color: #3498db;
+    color: #fff;
+  }
+}
+
+/* Touch/tap feedback for touch devices, and as a fallback for :active generally */
+.profileButton:active {
   background-color: #3498db !important;
   color: #fff !important;
 }
 
-/* Dropdown open state (neutral, not highlighted) */
+.dropdownMenu .dropdown-item:active {
+  background-color: #3498db;
+  color: #fff;
+}
+
 .profileButton.show {
   background: none !important;
   color: #ecf0f1 !important;
@@ -381,11 +396,6 @@ nav a:hover {
 .dropdownMenu .dropdown-item {
   padding: 10px 14px;
   color: #2c3e50;
-}
-
-.dropdownMenu .dropdown-item:hover {
-  background-color: #3498db;
-  color: #fff;
 }
 
 
