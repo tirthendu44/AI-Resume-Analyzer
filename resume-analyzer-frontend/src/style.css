@@ -394,16 +394,18 @@ nav ul li a {
   }
 }
 
-/* Tap feedback: JS adds this class on touchstart, removes it ~300ms later.
-   The transition above (already on .profileButton) handles the fade-out. */
-.profileButton.tap-active {
-  background-color: #3498db !important;
-  color: #fff !important;
-}
-
 .profileButton.show {
   background: none !important;
   color: #ecf0f1 !important;
+}
+
+/* Tap feedback: JS adds this class on touchstart, removes it ~400ms later.
+   Placed AFTER .show, and includes a combined .show.tap-active selector,
+   so tap feedback always wins even while the dropdown is open. */
+.profileButton.tap-active,
+.profileButton.show.tap-active {
+  background-color: #3498db !important;
+  color: #fff !important;
 }
 
 .dropdownMenu {
@@ -423,7 +425,6 @@ nav ul li a {
   background-color: #3498db;
   color: #fff;
 }
-
 
 
 .skillsSection {
