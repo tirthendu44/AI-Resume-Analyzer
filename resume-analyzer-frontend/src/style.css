@@ -351,17 +351,18 @@ nav a:hover {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover effect */
-.profileButton:hover {
-  background-color: #3498db !important;
-  color: #fff !important;
-}
-
-/* Focus state (neutral, doesn’t block hover) */
+/* Focus state (neutral, doesn't block hover) — declared BEFORE hover
+   so hover always wins when both states apply at once */
 .profileButton:focus {
   outline: none !important;
   background: none !important;
   color: #ecf0f1 !important;
+}
+
+/* Hover effect — now takes priority over :focus due to source order */
+.profileButton:hover {
+  background-color: #3498db !important;
+  color: #fff !important;
 }
 
 /* Dropdown open state (neutral, not highlighted) */
@@ -386,7 +387,6 @@ nav a:hover {
   background-color: #3498db;
   color: #fff;
 }
-
 
 
 

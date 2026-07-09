@@ -5,7 +5,10 @@ import Dropdown from "react-bootstrap/Dropdown";
 function Navbar({ isLoggedIn, onLogout }) {
   const blurToggle = () => {
     const toggleBtn = document.querySelector(".profileMenu .dropdown-toggle");
-    if (toggleBtn) toggleBtn.blur();
+    if (toggleBtn) {
+      // Defer so it runs after react-bootstrap's own focus-restore logic
+      setTimeout(() => toggleBtn.blur(), 0);
+    }
   };
 
   return (
