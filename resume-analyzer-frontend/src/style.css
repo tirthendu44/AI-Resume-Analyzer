@@ -551,11 +551,12 @@ nav ul li a {
 .job-card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
   gap: 20px;
-  padding: 0 10px;
+  justify-content: center;   /* centers cards, equal space left/right */
+  padding: 0;                /* no extra padding needed */
   box-sizing: border-box;
 }
+
 
 .dashboard-layout {
   display: flex;
