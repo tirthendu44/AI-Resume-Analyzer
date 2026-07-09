@@ -334,6 +334,30 @@ nav a:hover {
   margin-top: 5px;
   font-size: 0.9em;
 }
+/* Kill default mobile browser tap highlight everywhere in the nav,
+   so only our own .tap-active class controls the visual feedback */
+nav a,
+nav button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+nav a:focus,
+nav a:active {
+  outline: none;
+  background: none;
+}
+
+/* Tap feedback for Home/Jobs links */
+nav ul li a.tap-active {
+  background-color: #3498db;
+  color: #fff;
+}
+
+nav ul li a {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
 /* Profile dropdown */
 .profileMenu {
   position: relative;

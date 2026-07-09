@@ -5,6 +5,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 function Navbar({ isLoggedIn, onLogout }) {
   const [tappedProfile, setTappedProfile] = useState(false);
   const [tappedItem, setTappedItem] = useState(null);
+  const [tappedNav, setTappedNav] = useState(null); // new: for Home/Jobs
 
   const blurToggle = () => {
     const toggleBtn = document.querySelector(".profileMenu .dropdown-toggle");
@@ -13,7 +14,7 @@ function Navbar({ isLoggedIn, onLogout }) {
     }
   };
 
-  const triggerTapEffect = (setter, key = true, duration = 300) => {
+  const triggerTapEffect = (setter, key = true, duration = 400) => {
     setter(key);
     setTimeout(() => setter(false), duration);
   };
@@ -21,8 +22,24 @@ function Navbar({ isLoggedIn, onLogout }) {
   return (
     <nav>
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/jobs">Jobs</Link></li>
+        <li>
+          <Link
+            to="/"
+            className={tappedNav === "home" ? "tap-active" : ""}
+            onTouchStart={() => triggerTapEffect(setTappedNav, "home")}
+          >
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/jobs"
+            className={tappedNav === "jobs" ? "tap-active" : ""}
+            onTouchStart={() => triggerTapEffect(setTappedNav, "jobs")}
+          >
+            Jobs
+          </Link>
+        </li>
 
         <li className="profileMenu">
           <Dropdown autoClose="true">
