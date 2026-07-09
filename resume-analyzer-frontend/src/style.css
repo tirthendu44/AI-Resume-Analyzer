@@ -581,6 +581,7 @@ nav a:hover {
     overflow-x: auto;            /* allow horizontal scroll if needed */
   }
 }
+/* Layout for JobDetailsPage */
 .job-details-layout {
   display: flex;
   gap: 20px;
@@ -600,26 +601,61 @@ nav a:hover {
   gap: 20px;
 }
 
+.card {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.card-title {
+  margin-bottom: 10px;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Loading overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Error message */
+.error-message {
+  color: red;
+  margin-top: 1rem;
+}
+
 /* Mobile view */
 @media (max-width: 768px) {
   .job-details-layout {
-    display: block;              /* stack vertically */
+    display: block;   /* stack vertically */
   }
 
   .left-column,
   .right-column {
-    width: 100%;                 /* full width on mobile */
-    display: block;              /* stack naturally */
+    width: 100%;      /* full width on mobile */
+    display: block;   /* stack naturally */
   }
 
   .card {
-    width: 100%;
     margin-bottom: 20px;
-    min-height: auto;            /* adapt to content */
+    min-height: auto; /* adapt to content */
   }
 
   .card-title {
     text-align: center;
-    margin-bottom: 10px;
   }
 }
