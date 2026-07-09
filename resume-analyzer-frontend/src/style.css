@@ -552,10 +552,12 @@ nav ul li a {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;   /* centers cards, equal space left/right */
-  padding: 0;                /* no extra padding needed */
+  justify-content: flex-start;   /* keep items aligned left */
+  padding-left: calc((100% - (var(--card-width) * var(--cards-per-row)) - (20px * (var(--cards-per-row) - 1))) / 2);
+  padding-right: 0;
   box-sizing: border-box;
 }
+
 
 
 .dashboard-layout {
