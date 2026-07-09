@@ -168,13 +168,18 @@ nav a:hover {
 /* Container for job cards */
 .jobCardContainer {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: flex-start; /* rows fill left-to-right; incomplete rows stay left */
+  align-items: flex-start;
+  align-content: flex-start;
   gap: 20px;
-  margin-top: 20px;
+  margin: 20px auto 0;
   width: 100%;
-  overflow-x: hidden; /* prevent horizontal scroll */
+  max-width: 1200px;
+  padding: 0 20px; /* equal gap from both sides of the container */
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* Individual job card */
