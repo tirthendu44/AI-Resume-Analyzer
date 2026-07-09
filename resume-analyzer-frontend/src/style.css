@@ -553,7 +553,7 @@ nav ul li a {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: flex-start;   /* keep items aligned left */
-  padding-left: 12%;
+  padding-left: 8%;
   padding-right: 0;
   box-sizing: border-box;
 }
@@ -619,7 +619,8 @@ nav ul li a {
   }
 
   .job-card-container {
-    overflow-x: auto;            /* allow horizontal scroll if needed */
+    overflow-x: auto; 
+    padding-left: 12%;           /* allow horizontal scroll if needed */
   }
 }
 /* Layout for JobDetailsPage */
