@@ -700,4 +700,7 @@ nav ul li a {
   .card-title {
     text-align: center;
   }
+  .jobCardContainer{
+    padding-left: 7%;           /* allow horizontal scroll if needed */
+  }
 }
