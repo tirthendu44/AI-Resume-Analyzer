@@ -548,10 +548,12 @@ nav ul li a {
 }
 
 .job-card-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
   gap: 20px;
-  justify-content: space-around;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px; /* adjust to match your card sizing */
   padding: 0 10px;
   box-sizing: border-box;
 }
