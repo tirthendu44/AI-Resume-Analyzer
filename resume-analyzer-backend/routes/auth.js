@@ -74,12 +74,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
     console.log("Inserting skills for userId:", user.id);
  
-    await db.query(
-      `INSERT INTO skills (user_id, technical_skills, domain_knowledge)
-       VALUES ($1, $2, $3)
-       ON CONFLICT (user_id) DO NOTHING`,
-      [user.id, [], []]             // ✅ use user.id here
-    );
+    
     res.json({ token });
     
   } catch (err) {
